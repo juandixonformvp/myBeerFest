@@ -49,10 +49,10 @@ public class BeerFest {
 
         return beerStock;
     }
-    static Predicate<Beer> priceRangeQuery(float myPrice) {
+    static Predicate<Beer> priceRangeQuery(String myPrice) {
 	// ToDo: compose and return a Predicate that will 
 	//       express the selection criterion
-        return p -> p.getPrice() < myPrice;
+        return p -> p.getPrice() < Float.parseFloat(myPrice);
     }
     static Predicate<Beer> countryQuery(String myCountry) {
 	// ToDo: compose and return a Predicate that will 
@@ -62,8 +62,8 @@ public class BeerFest {
     public static void main(String argv[]) {
 	List<Beer> beerList = loadCellar();
 	// Call beerQuery with a predicate for selecting a country
-	beerQuery(beerList, countryQuery(...)).forEach(System.out::println);
+	beerQuery(beerList, countryQuery(argv[0])).forEach(System.out::println);
 	// Call beerQuery with a predicate for a price range
-	beerQuery(beerList, priceRangeQuery(...)).forEach(System.out::println);
+	beerQuery(beerList, priceRangeQuery(argv[1])).forEach(System.out::println);
     }
 }
