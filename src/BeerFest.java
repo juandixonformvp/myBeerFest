@@ -49,13 +49,15 @@ public class BeerFest {
 
         return beerStock;
     }
-    static Predicate<Beer> priceRangeQuery(...) {
+    static Predicate<Beer> priceRangeQuery(float myPrice) {
 	// ToDo: compose and return a Predicate that will 
 	//       express the selection criterion
+        return p -> p.getPrice() < myPrice;
     }
-    static Predicate<Beer> countryQuery(...) {
+    static Predicate<Beer> countryQuery(String myCountry) {
 	// ToDo: compose and return a Predicate that will 
 	//       express the selection criterion
+        return p -> p.name.equals(myCountry);
     }
     public static void main(String argv[]) {
 	List<Beer> beerList = loadCellar();
