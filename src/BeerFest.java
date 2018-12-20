@@ -57,7 +57,7 @@ public class BeerFest {
     static Predicate<Beer> countryQuery(String myCountry) {
 	// ToDo: compose and return a Predicate that will 
 	//       express the selection criterion
-        return p -> p.name.equals(myCountry);
+        return p -> p.country.equals(myCountry);
     }
     public static void main(String argv[]) {
 	List<Beer> beerList = loadCellar();
