@@ -4,6 +4,7 @@
 import java.util.ArrayList;
 import java.util.function.Predicate;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class BeerFest {
     public  static class Beer {
@@ -29,6 +30,8 @@ public class BeerFest {
     }
     public static List<Beer> beerQuery(List<Beer> beerList, Predicate <Beer> predicate) {
         List<Beer> result = beerList.stream()
+                .filter(predicate)
+                .collect(Collectors.<Beer>toList());
 	    // ToDo Select Beers that match the predicate
         return result;
     }
